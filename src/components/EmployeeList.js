@@ -6,6 +6,7 @@ import { EmployeeContext } from "../contexts/EmployeeContext";
 import {Button, Modal, ModalBody, ModalFooter, ModalTitle} from "react-bootstrap";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
 import AddForm from "./AddForm";
+import '../index.css';
 
 const EmployeeList = () => {
 
