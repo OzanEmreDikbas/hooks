@@ -1,7 +1,15 @@
 import { Form, Button } from "react-bootstrap";
-
+import { EmployeeContext } from "../contexts/EmployeeContext";
+import { useContext, useState } from "react";
 
 const AddForm = () => {
+
+    const {addEmployee} = useContext(EmployeeContext);
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [address, setAddress] = useState("");
+    const [phone, setPhone] = useState("");
 
     return (
         <Form>
@@ -9,6 +17,8 @@ const AddForm = () => {
                 <Form.Control
                 type="text"
                 placeholder="Name *"
+                value={name}
+                onChange={e => setName(e.target.value)}
                 required 
                 />
             </Form.Group>
@@ -16,6 +26,8 @@ const AddForm = () => {
                 <Form.Control
                 type="email"
                 placeholder="Email *"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
                 required 
                 />
             </Form.Group>
@@ -23,13 +35,17 @@ const AddForm = () => {
                 <Form.Control
                 as="textarea"
                 placeholder="Address *"
+                value={address}
+                onChange={e => setAddress(e.target.value)}
                 rows={3} 
                 />
             </Form.Group>
             <Form.Group className="formgroup">
                 <Form.Control
                 type="number"
-                placeholder="Phone *" 
+                placeholder="Phone *"
+                value={phone}
+                onChange={e => setPhone(e.target.value)} 
                 />
             </Form.Group>
             <Button variant="success" type="submit" block>
