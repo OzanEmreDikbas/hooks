@@ -1,12 +1,11 @@
 /** @format */
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Employee from "./Employee";
 import { EmployeeContext } from "../contexts/EmployeeContext";
 import {Button, Modal, ModalBody, ModalFooter, ModalTitle} from "react-bootstrap";
 import ModalHeader from "react-bootstrap/esm/ModalHeader";
 import AddForm from "./AddForm";
-import '../index.css';
 
 const EmployeeList = () => {
 
@@ -15,6 +14,11 @@ const EmployeeList = () => {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    handleClose();}, 
+    [employees])
+    
   return (
     <>
       <div className='table-title'>
