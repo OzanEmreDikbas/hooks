@@ -5,28 +5,28 @@ const AddForm = () => {
 
     return (
         <Form>
-            <Form.Group>
+            <Form.Group className="formgroup">
                 <Form.Control
                 type="text"
                 placeholder="Name *"
                 required 
                 />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="formgroup">
                 <Form.Control
                 type="email"
                 placeholder="Email *"
                 required 
                 />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="formgroup">
                 <Form.Control
                 as="textarea"
                 placeholder="Address *"
                 rows={3} 
                 />
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="formgroup">
                 <Form.Control
                 type="number"
                 placeholder="Phone *" 
