@@ -5,9 +5,11 @@ import { Button, Modal } from "react-bootstrap";
 import AddForm from "./AddForm";
 const EmployeeList = () => {
   const { employees } = useContext(EmployeeContext);
+
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  
   useEffect(() => {
     handleClose();
   }, [employees]);
