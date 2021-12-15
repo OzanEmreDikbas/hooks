@@ -27,7 +27,9 @@ const Pagination = () => {
         {
             numOfPages.map((page, index) => {
                 return (
-                <li key={index} className={`${currentButton === page ? 'page-item active' : 'page-item'}`}><a href='#' className='page-link'>{page}</a>
+                <li key={index} className={`${currentButton === page ? 'page-item active' : 'page-item'}`}><a href='#!' className='page-link' 
+                onClick={() => setCurrentButton(page)}
+                >{page}</a>
                 </li>                    
                 )
             })

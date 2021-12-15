@@ -10,6 +10,9 @@ const EmployeeList = () => {
 
   const [showAlert, setShowAlert] = useState(false);
   const [show, setShow] = useState(false);
+  const [currentPage, setCurrrentPage] = useState(1);
+  const [employeesPerPage] = useState(2);
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -34,6 +37,12 @@ const EmployeeList = () => {
   //   console.log(myRef.current);
   //   myRef.current.focus();
   // };
+
+  const indexOfLastEmployee = currentPage * employeesPerPage;
+  const indexOfFirstEmployee = indexOfLastEmployee - employeesPerPage;
+  const currentEmployees = employees.slice(indexOfFirstEmployee, indexOfLastEmployee);
+  const totalPagesNum = Math.ceil(employees.lenght/ employeesPerPage)
+
   return (
     <>
       <div className="table-title">
@@ -81,7 +90,7 @@ const EmployeeList = () => {
         </tbody>
       </table>
       <Pagination />
-      
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className="modal-header" closeButton>
           <Modal.Title>Add Employee</Modal.Title>
