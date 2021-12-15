@@ -15,6 +15,13 @@ const EditForm = ({theEmployee}) => {
     const [address, SetAddress] = useState(employee.address);
     const [phone, SetPhone] = useState(employee.phone);
 
+    const updatedEmployee = {id, name, email, address, phone};
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        updateEmployee(id, updatedEmployee);
+    }
+
     return (
         <Form onSubmit={handleSubmit}>
             <Form.Group className="formgroup">

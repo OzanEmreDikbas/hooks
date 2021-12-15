@@ -1,5 +1,5 @@
 /** @format */
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { EmployeeContext } from "../contexts/EmployeeContext";
 import { Button, Modal } from "react-bootstrap";
 import EditForm from "./EditForm";
@@ -10,6 +10,10 @@ const Employee = ({ employee }) => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  useEffect(() => {
+    handleClose();
+  }, [employee]);
 
   return (
     <>
