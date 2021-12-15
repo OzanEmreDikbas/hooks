@@ -24,6 +24,18 @@ const Pagination = () => {
           <a href='#!' className='page-item'
           onClick={() => setCurrentButton((prev) => prev === 1 ? prev : prev - 1 )}>Previous</a>
         </li>
+        {
+            numOfPages.map((page, index) => {
+                return (
+                <li key={index} className={`${currentButton === page ? 'page-item active' : 'page-item'}`}><a href='#' className='page-link'>{page}</a>
+                </li>                    
+                )
+            })
+        }
+        <li className={`${currentButton === numOfPages.lenght ? 'page-item disabled' : 'page-item'}`}>
+          <a href='#!' className='page-item'
+          onClick={() => setCurrentButton((prev) => prev === numOfPages.lenght ? prev : prev + 1 )}>Previous</a>
+        </li>
 
       </ul>
     </div>
