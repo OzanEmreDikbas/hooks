@@ -16,13 +16,14 @@ const EditForm = ({theEmployee}) => {
     const [phone, SetPhone] = useState(employee.phone);
 
     return (
-        <Form >
+        <Form onSubmit={handleSubmit}>
             <Form.Group className="formgroup">
                 <Form.Control
                 type="text"
                 placeholder="Name *"
                 name="name"
                 value={name} 
+                onChange={(e) => SetName(e.target.value)}
                 required 
                 />
             </Form.Group>
@@ -32,6 +33,7 @@ const EditForm = ({theEmployee}) => {
                 placeholder="Email *"
                 name="email"
                 value={email} 
+                onChange={(e) => SetEmail(e.target.value)}
                 required 
                 />
             </Form.Group>
@@ -41,15 +43,17 @@ const EditForm = ({theEmployee}) => {
                 placeholder="Address *"
                 name="address"
                 value={address} 
+                onChange={(e) => SetAddress(e.target.value)}
                 rows={3} 
                 />
             </Form.Group>
             <Form.Group className="formgroup">
                 <Form.Control
-                type="number"
+                type="text"
                 placeholder="Phone *"
                 name="phone"
                 value={phone} 
+                onChange={(e) => SetPhone(e.target.value)}
                 />
             </Form.Group>
             <Button variant="success" type="submit" block>
