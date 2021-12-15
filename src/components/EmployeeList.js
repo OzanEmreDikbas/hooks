@@ -1,18 +1,31 @@
 import { useContext, useEffect, useState} from "react"; // useRef ekle...
 import Employee from "./Employee";
 import { EmployeeContext } from "../contexts/EmployeeContext";
-import { Button, Modal } from "react-bootstrap";
+import { Button, Modal, Alert } from "react-bootstrap";
 import AddForm from "./AddForm";
 const EmployeeList = () => {
   const { employees } = useContext(EmployeeContext);
 
+  const [showAlert, setShowAlert] = useState(false);
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const handleShowAlert = () => {
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 3000); //3saniye sonra kapansın.
+  };
+
   useEffect(() => {
     handleClose();
+    return () => handleShowAlert();
   }, [employees]);
+
+  // useEffect(() => {  // 
+  //   handleClose();
+  // }, [employees]);
   // const myRef = useRef(null);
   // console.log(myRef.current);
   // const onButtonClick = () => {
@@ -40,6 +53,11 @@ const EmployeeList = () => {
           </div>
         </div>
       </div>
+
+      <Alert show={showAlert} variant="success">
+        Employee List successfullyupdated!
+      </Alert>
+
       <table className="table table-striped table-hover">
         <thead>
           <tr>
