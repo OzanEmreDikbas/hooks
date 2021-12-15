@@ -9,7 +9,7 @@ const EmployeeList = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  
+
   useEffect(() => {
     handleClose();
   }, [employees]);
@@ -52,7 +52,7 @@ const EmployeeList = () => {
         </thead>
         <tbody>
           {
-            employees.map((employee) => (
+            employees.sort((a,b) => (a.name < b.name ? -1 : 1)).map((employee) => (
               <tr key={employee.id}>
                 <Employee employee={employee} />
                 </tr>
@@ -79,3 +79,7 @@ const EmployeeList = () => {
   );
 };
 export default EmployeeList;
+
+// .sort((a,b) => a.name.localeCompare(b.name))
+
+// .sort((a,b) => (a.name < b.name ? -1 : 1))
