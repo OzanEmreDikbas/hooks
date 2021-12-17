@@ -1,6 +1,4 @@
-/** @format */
-
-import { useContext, useEffect, useState} from 'react'; // useReducer çıktı.
+import { useContext, useEffect, useState} from 'react';
 import Employee from './Employee';
 import { Button, Modal, Alert } from 'react-bootstrap';
 import { EmployeeContext } from '../contexts/EmployeeContext';
